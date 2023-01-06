@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
+<body>
+
+	<section>
+		<div class="cards mr-5 ml-4"th:if=${contact2}>
+			<div class="card-body ">
+				<div class="container text-center">
+					<img alt="profile photo" src=""
+						style="height: 200px; width: 200px;" class="my_profile"
+						th:src="@{'/img/'+${contact2.image}}" />
+					<h3 class="mt-2">
+						<span th:text="${contact2.name}"></span> <span
+							th:text="${contact2.secondName}"></span>
+					</h3>
+
+
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">#ID</th>
+								<th scope="col">SCMID-<span th:text="${contact2.cId}"></span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">Email</th>
+								<td><span th:text="${contact2.eamil}"></span></td>
+							</tr>
+
+						</tbody>
+
+						<tr>
+							<th scope="row">Phone</th>
+							<td><span th:text="${contact2.phone}"></span></td>
+						</tr>
+							<tr>
+							<th scope="row">work</th>
+							<td><span th:text="${contact2.work}"></span></td>
+					</table>
+					<div class="description mt-4">
+							<span th:utext="${contact2.description}"></span>
+					</div>
+					<div class="container mt-2">
+					
+								<button th:onclick="|deleteContact(${contact2.cId})|" class="btn btn-danger btt-sm btn-block">Delete</button>
+								<button class="btn btn-secondary btt-sm btn-block">Update</button>
+							
+					</div>
+				</div>
+			</div>
+		
+		</div>
+		<h2 class="text-center bg-danger p-3 mr-5 ml-4 mt-5" th:unless=${contact2}>You don't have permission to access the data</h2>
+	</section>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
+<body>
+
+	<section>
+		<div class="container d-flex justify-content-center h-100">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card text-center">
+						<div class="card-body ">
+						<div th:if="${message}" class="alert alert-dark text-center">
+								<span th:text="${message}" ></span>
+								</div>
+							<h3 class="my-3">Change password</h3>
+							<form th:action="@{/user/change-password}" method="post">
+							
+								<!-- old password field -->
+								<div class="form-group">
+									<input name="oldPassword" type="password" class="form-control"
+										placeholder="Enter old Password">
+								</div>
+								<!-- new password field -->
+								<div class="form-group">
+									<input name="newPassword" type="password" class="form-control"
+										placeholder="Enter new Password">
+								</div>
+								<div class="container text-center mt-3">
+								<button type="submit" class="btn btn-success">Change</button>
+								<button type="reset" class="btn btn-secondary">Reset</button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
